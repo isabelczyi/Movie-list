@@ -11,23 +11,23 @@
 </div>
 </div>
 
-<div class="d-flex justify-content-between">
-
-
-<%= button_to "Add a bookmark", new_list_bookmark_path(@list), class: "btn btn-success rounded"%>
-</div>
-<div class="d-flex justify-content-evenly overflow-auto">
-<% @list.bookmarks.each do |bookmark| %>
-  <div class="card border shadow mb-5 bg-body " style="width: 500px; height: 400px;">
-  <% @url = bookmark.movie.poster_url%>
-    <img src="<%= @url%>" class="card-img-top" style="object-fit: cover; height: 200px;" alt="poster image">
-    <div class="card-body overflow-auto">
-      <p class="card-text fw-bold"><%= bookmark.movie.title%> • <%= bookmark.movie.rating%>/10</p>
-      <p class="card-text"><%= bookmark.movie.overview %></p>
-      <div class="d-flex justify-content-between p-0"><p class="card-text">❝<%= bookmark.comment %></p>
-      <p class="card-text"><%= link_to "Delete", bookmark_path(bookmark.id), method: :delete, data: { confirm: "Are you sure?"}, class: "link-danger", style: "text-decoration: none"  %></p>
-      </div>
-    </div>
+<div class="container d-flex flex-column">
+  <div class="float-end m-1 text-end m-3">
+    <%= button_to "Add a bookmark", new_list_bookmark_path(@list), method: :get, class: "btn btn-success rounded-3"%>
   </div>
-<% end %>
+  <div class="d-flex justify-content-evenly overflow-auto m-1">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card border shadow mb-5 bg-body " style="width: 500px; height: 400px;">
+      <% @url = bookmark.movie.poster_url%>
+        <img src="<%= @url%>" class="card-img-top" style="object-fit: cover; height: 200px;" alt="poster image">
+        <div class="card-body overflow-auto">
+          <p class="card-text fw-bold"><%= bookmark.movie.title%> • <%= bookmark.movie.rating%>/10</p>
+          <p class="card-text"><%= bookmark.movie.overview %></p>
+          <div class="d-flex justify-content-between p-0"><p class="card-text">❝<%= bookmark.comment %></p>
+          <p class="card-text"><%= link_to "Delete", bookmark_path(bookmark.id), method: :delete, data: { confirm: "Are you sure?"}, class: "link-danger", style: "text-decoration: none"  %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
