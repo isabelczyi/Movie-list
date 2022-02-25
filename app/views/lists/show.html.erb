@@ -4,12 +4,13 @@
     another class with no padding or inline as I did below -->
    <div class="container-fluid " style="padding: 0px;">
       <div class="row">
-               <img src="<%= @list.image_url%>" alt="list banner image" style="width: 100%;">
-      </div>
-      <div class="position-absolute top-50 start-50 translate-middle"><h1><%= @list.name %></h1>
+
+               <img src="<%= @list.image_url%>" alt="list banner image" style="width: 100%;"></div>
+      <div class="position-absolute top-50 start-50 translate-middle"><h1 class="text-white" style="text-shadow: 1px 1px 2px black"><%= @list.name %></h1>
   </div>
 </div>
 </div>
+
 
 <div class="container d-flex flex-column">
   <div class="float-end m-1 text-end m-3">
