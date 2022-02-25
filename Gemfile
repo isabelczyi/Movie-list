@@ -56,3 +56,6 @@ gem "simple_form"
 
 # to hide API keys
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Image hosting
+gem 'cloudinary', '~> 1.16.0'
